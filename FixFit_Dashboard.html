@@ -117,7 +117,20 @@
     <h1>🔧 FixFit Feasibility Dashboard</h1>
     <div class="sub">Automotive Quick Service | Thailand Market | Interactive Analysis</div>
   </div>
-  <span class="badge">Board-Ready v1.0</span>
+  <span class="badge" style="background:#d62828;">V1 ตั้งต้น — Reference Only</span>
+</div>
+
+<!-- ===== V1 REFERENCE BANNER ===== -->
+<div style="background: linear-gradient(90deg, #fef3c7 0%, #fde68a 50%, #fef3c7 100%); border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; padding: 14px 24px; display: flex; align-items: center; gap: 18px;">
+  <div style="font-size: 28px; line-height: 1;">⚠️</div>
+  <div style="flex: 1;">
+    <div style="font-size: 14px; font-weight: 800; color: #92400e; margin-bottom: 4px; letter-spacing: 0.3px;">
+      เอกสารนี้คือการวิเคราะห์ V1 ตั้งต้น (Diligence Reference เท่านั้น)
+    </div>
+    <div style="font-size: 12.5px; color: #78350f; line-height: 1.5;">
+      ตัวเลขใน Dashboard นี้อ้างอิงจาก <strong>โมเดล V1 ตั้งต้น</strong> (4 bays · เงินลงทุน ฿8.6M · payback 4.5 ปี · rent ฿0 · tax flat 20%) ใช้ประกอบการ Due Diligence และทำความเข้าใจ baseline เท่านั้น
+    </div>
+  </div>
 </div>
 
 <div class="tabs">
@@ -425,58 +438,58 @@
   </div>
 
   <div class="insight-card">
-    <h4>🔴 Dead Angle #1 — Technician Retention & Skill Gap (Big 4 Flag)</h4>
-    <p><span class="tag red">HIGH RISK</span><span class="tag blue">Operational</span> โมเดลสมมติว่า Technician 2 คนคงอยู่ตลอด 10 ปี แต่ในอุตสาหกรรม Automotive Service ไทย อัตราการ turnover ของ Technician อยู่ที่ <strong>25–40%/ปี</strong> [ASSUMPTION: อิง industry benchmark] ถ้า key tech ออกในช่วง Y1–Y2 จะกระทบ CPU/Day ทันทีและต้นทุน recruitment + training อยู่ที่ ~฿80,000/คน ที่ไม่ได้ model ไว้ <br><br><strong>Mitigation:</strong> ควร model replacement cost แยก + พิจารณา retention bonus ที่ tied กับ performance KPI</p>
+    <h4>🔴 ประเด็นที่ 1 — ความเสี่ยงด้านการรักษาบุคลากรช่างเทคนิค (Technician Retention)</h4>
+    <p><span class="tag red">HIGH RISK</span><span class="tag blue">Operational</span> โมเดลปัจจุบันอ้างอิงสมมติฐานว่าช่างเทคนิคทั้ง 2 คน ปฏิบัติงานต่อเนื่องตลอดอายุโครงการ 10 ปี โดยไม่บันทึกต้นทุนทดแทน อย่างไรก็ตาม อุตสาหกรรม Automotive Service ในประเทศไทยมีอัตราการลาออก (Turnover Rate) เฉลี่ย <strong>25–40% ต่อปี</strong> [ASSUMPTION: อิง industry benchmark] ในกรณีที่บุคลากรหลักลาออกในช่วง Y1–Y2 ซึ่งเป็นระยะ ramp-up ที่เปราะบาง จะส่งผลกระทบต่อกำลังการผลิต (CPU/Day) ทันที พร้อมก่อให้เกิดต้นทุนสรรหาและฝึกอบรมประมาณ ฿80,000 ต่อคน ที่ยังไม่ได้บันทึกไว้ในงบประมาณ<br><br><strong>ข้อเสนอแนะ:</strong> ควรบรรจุ Replacement Cost เป็น line item แยกในแบบจำลอง และพิจารณาโครงสร้าง Retention Bonus ที่ผูกกับ Performance KPI เพื่อลดความเสี่ยงในช่วง critical ramp-up</p>
   </div>
 
   <div class="insight-card">
-    <h4>🔴 Dead Angle #2 — Royalty & Franchise Obligation ซ่อนอยู่ใน Entrance Fee</h4>
-    <p><span class="tag red">HIGH RISK</span><span class="tag blue">Financial</span> Entrance fee ฿650,000 ใน model เป็น one-time แต่ franchise/license ส่วนใหญ่มาพร้อม <strong>ongoing royalty 3–8% of revenue</strong> ที่ไม่ปรากฏใน Fixed Cost ถ้ามี royalty 5% จะหายไป ฿936,000/ปี ที่ plateau — เทียบเท่ากับ GP จาก 14 cars/month ทำให้ Payback ยืดเป็น ~5.5 ปี<br><br><strong>Action ด่วน:</strong> ยืนยัน franchise agreement ว่ามี ongoing fee หรือไม่ ก่อน Board presentation</p>
+    <h4>🔴 ประเด็นที่ 2 — Franchise Royalty Obligation ที่ไม่ปรากฏในงบประมาณ</h4>
+    <p><span class="tag red">HIGH RISK</span><span class="tag blue">Financial</span> Entrance Fee จำนวน ฿650,000 ถูกจัดประเภทเป็นค่าใช้จ่ายแบบครั้งเดียว (one-time) อย่างไรก็ตาม สัญญา Franchise/License ในอุตสาหกรรมนี้โดยทั่วไปกำหนดให้มี <strong>Ongoing Royalty อัตรา 3–8% ของรายได้</strong> ซึ่งไม่ปรากฏใน Fixed Cost ของโมเดลปัจจุบัน หากสมมติอัตรา Royalty ที่ 5% จะเกิดภาระค่าใช้จ่ายเพิ่มขึ้นประมาณ ฿936,000 ต่อปี ณ จุด plateau เทียบเท่ากับ Gross Profit จากการให้บริการรถ 14 คันต่อเดือน และส่งผลให้ระยะเวลาคืนทุน (Payback Period) ขยายเป็นประมาณ 5.5 ปี<br><br><strong>ข้อเสนอแนะเร่งด่วน:</strong> ควรตรวจสอบเงื่อนไข Franchise Agreement ให้ครบถ้วน ก่อนนำเสนอคณะกรรมการเพื่ออนุมัติ</p>
   </div>
 
   <div class="insight-card">
-    <h4>🟡 Dead Angle #3 — EV Transition Risk ต่อ Quick Service Model</h4>
-    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Strategic</span><span class="tag red">10Y Horizon</span> ภายใน 10 ปีตาม model นี้ ประเทศไทยมีนโยบาย 30% EV by 2030 (30@30 policy) EV ใช้ <strong>น้ำมันเครื่อง 0 ครั้ง</strong> ต่อปี ซึ่งเป็น core service ของ Fast Fit model การเปลี่ยน UIO profile จะกระทบ demand assumption โดยตรงตั้งแต่ Y6 เป็นต้นไป ที่ model ยัง assume flat revenue ไว้<br><br><strong>Scenario ที่ควรเพิ่ม:</strong> Y6–Y10 demand decay 5–10%/yr เพื่อทดสอบ downside</p>
+    <h4>🟡 ประเด็นที่ 3 — ความเสี่ยงจาก EV Transition ต่อโมเดล Quick Service</h4>
+    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Strategic</span><span class="tag red">10Y Horizon</span> ภายในกรอบเวลา 10 ปีของโครงการ ประเทศไทยมีนโยบาย 30@30 ที่ตั้งเป้าให้รถยนต์ไฟฟ้า (EV) มีสัดส่วน 30% ของยอดผลิตรถใหม่ภายในปี 2030 รถยนต์ EV ไม่จำเป็นต้องใช้บริการเปลี่ยนน้ำมันเครื่อง ซึ่งเป็น <strong>บริการหลักของ Fast Fit Model</strong> การเปลี่ยนแปลงโครงสร้าง Used-In-Operation (UIO) ของตลาดจะกระทบสมมติฐานด้าน demand โดยตรงตั้งแต่ Y6 เป็นต้นไป ในขณะที่โมเดลปัจจุบันยังอ้างอิง flat revenue ตลอดช่วงเวลา<br><br><strong>ข้อเสนอแนะ:</strong> ควรเพิ่ม Downside Scenario สำหรับ Y6–Y10 ที่สมมติ demand decay ในอัตรา 5–10% ต่อปี เพื่อทดสอบความทนทานของโครงการต่อการเปลี่ยนผ่านสู่ EV</p>
   </div>
 
   <div class="insight-card">
-    <h4>🟡 Dead Angle #4 — Auction Car Internal Demand Dependency</h4>
-    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Revenue</span> Internal customer จาก Auction Car 2,000 คัน/เดือน ที่ 5% = 100 units ถูก assume คงที่ แต่ auction volume ขึ้นอยู่กับ ATC group policy ซึ่งเป็น <strong>captive demand ที่ควบคุมไม่ได้</strong> จาก market side ถ้า ATC ลด allocation หรือเปลี่ยน vendor จะหาย 100 units ทันที (-19% ของ plateau CPU) ทำให้ margin ติดลบในเดือนนั้น<br><br><strong>Mitigation:</strong> ขอ SLA/committed volume จาก ATC group ก่อน operational start</p>
+    <h4>🟡 ประเด็นที่ 4 — การพึ่งพา Internal Demand จาก Auction Car</h4>
+    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Revenue</span> รายได้จากกลุ่มลูกค้าภายใน (Internal Customer) ผ่านธุรกิจ Auction Car 2,000 คันต่อเดือน ที่อัตรา conversion 5% เทียบเท่า 100 units ถูกสมมติว่าคงที่ตลอดอายุโครงการ อย่างไรก็ตาม volume ดังกล่าวขึ้นอยู่กับนโยบายของ AUTC Group ซึ่งเป็น <strong>captive demand ที่ไม่สามารถควบคุมได้จากฝั่ง market</strong> หาก AUTC ปรับลด allocation หรือเปลี่ยน service vendor จะกระทบ demand ทันที 100 units (เทียบเท่า -19% ของ CPU ณ จุด plateau) และส่งผลให้ Gross Margin ในเดือนนั้นติดลบได้<br><br><strong>ข้อเสนอแนะ:</strong> ควรเจรจาขอ Service Level Agreement (SLA) หรือ Committed Volume กับ AUTC Group ก่อนเริ่มดำเนินการ เพื่อสร้าง demand floor ที่มั่นคง</p>
   </div>
 
   <div class="insight-card">
-    <h4>🟡 Dead Angle #5 — Working Capital Timing vs Ramp-up Gap</h4>
-    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Financial</span> Working Cap ฿420,000 ที่ตั้งไว้ครอบคลุมได้แค่ ~2.5 เดือนของ Fixed Cost ใน Y1 ที่ EBITDA เพียง ฿92,400/เดือน จะมี cash shortfall สะสมในช่วง Q1–Q3 ที่ model ไม่ได้แสดง Monthly Cash Flow ไว้<br><br><strong>Action:</strong> ควรทำ Monthly CF model แยกสำหรับ Y1 เพื่อ size working capital ให้พอดี</p>
+    <h4>🟡 ประเด็นที่ 5 — Working Capital ไม่เพียงพอต่อช่วง Ramp-up</h4>
+    <p><span class="tag yellow">MEDIUM</span><span class="tag blue">Financial</span> Working Capital ที่จัดสรรไว้ ฿420,000 รองรับ Fixed Cost ได้เพียงประมาณ 2.5 เดือน ในขณะที่ EBITDA ในปี Y1 อยู่ที่เพียง ฿92,400 ต่อเดือน ซึ่งจะก่อให้เกิด <strong>Cash Shortfall สะสม</strong> ในช่วง Q1–Q3 ของ Y1 โดยที่โมเดลปัจจุบันยังไม่ได้แสดง Monthly Cash Flow ทำให้ผู้บริหารไม่เห็นภาพความตึงตัวด้านสภาพคล่องในช่วงเริ่มดำเนินการ<br><br><strong>ข้อเสนอแนะ:</strong> ควรจัดทำ Monthly Cash Flow Model แยกสำหรับ Y1 เพื่อกำหนดขนาด Working Capital ให้สอดคล้องกับ peak shortfall และพิจารณาเตรียม Credit Line สำรองเป็นมาตรการรองรับ</p>
   </div>
 
   <div class="insight-card">
-    <h4>🟢 Opportunity — Value-Added Service Upsell (ไม่ได้อยู่ใน model)</h4>
-    <p><span class="tag green">UPSIDE</span><span class="tag blue">Revenue</span> Quick Service model ปัจจุบัน assume ARPU ฿3,000 flat แต่ถ้า upsell tire, battery, wiper replacement ได้เพียง <strong>20% of customers</strong> ที่ average ticket +฿800 จะเพิ่ม Revenue ฿83,200/เดือน (+10.7% ที่ plateau) โดยไม่ต้องเพิ่ม bay หรือ headcount<br><br><strong>ROI:</strong> ต้นทุนหลักคือ training + parts inventory เพิ่ม ~฿50K/เดือน → Net upside ~฿33K/เดือน</p>
+    <h4>🟢 โอกาสที่ 1 — เพิ่ม ARPU ผ่าน Value-Added Service Upsell</h4>
+    <p><span class="tag green">UPSIDE</span><span class="tag blue">Revenue</span> โมเดลปัจจุบันอ้างอิง Average Revenue Per Unit (ARPU) คงที่ที่ ฿3,000 ตลอดอายุโครงการ ทั้งที่ในทางปฏิบัติ Fast Fit Service สามารถ upsell สินค้าเสริม เช่น ยาง แบตเตอรี่ และที่ปัดน้ำฝน หากบรรลุ capture rate ที่ <strong>20% ของลูกค้า</strong> โดยมี average ticket เพิ่ม ฿800 ต่อราย จะสร้างรายได้เพิ่ม ฿83,200 ต่อเดือน (เทียบเท่า +10.7% ณ plateau) โดยไม่ต้องลงทุนเพิ่ม service bay หรือเพิ่มอัตรากำลัง<br><br><strong>การประเมิน ROI:</strong> ต้นทุนหลักประกอบด้วยค่า training และการเพิ่ม inventory ของ spare parts ประมาณ ฿50,000 ต่อเดือน ส่งผลให้ Net Upside อยู่ที่ ~฿33,000 ต่อเดือน หรือเทียบเท่า incremental margin ที่ contribute โดยตรงต่อ IRR uplift</p>
   </div>
 
   <div class="insight-card">
-    <h4>🟢 Opportunity — Digital Queue + CRM Loyalty Loop</h4>
-    <p><span class="tag green">UPSIDE</span><span class="tag blue">Market</span> Fast Fit model ไม่มี customer retention mechanism ใน model ปัจจุบัน ถ้าติดตั้ง <strong>LINE OA + digital queue</strong> สามารถเพิ่ม revisit rate จากอุตสาหกรรม average 1.8 ครั้ง/ปี → 2.5 ครั้ง/ปี ซึ่งเท่ากับเพิ่ม effective demand 39% โดยไม่ต้องหา new customer<br><br><strong>ต้นทุน:</strong> ฿15,000–25,000 setup + ฿3,000/เดือน — payback ภายใน 1 เดือน</p>
+    <h4>🟢 โอกาสที่ 2 — Digital Queue และ CRM Loyalty Loop เพื่อเพิ่ม Customer Lifetime Value</h4>
+    <p><span class="tag green">UPSIDE</span><span class="tag blue">Market</span> โมเดลปัจจุบันยังไม่บรรจุ Customer Retention Mechanism ทั้งที่ Fast Fit เป็นธุรกิจที่ <strong>revisit rate เป็นตัวขับเคลื่อนรายได้</strong> หากนำระบบ LINE Official Account ร่วมกับ Digital Queue มาประยุกต์ใช้ จะสามารถเพิ่ม revisit rate จากค่าเฉลี่ยอุตสาหกรรม 1.8 ครั้งต่อปี เป็น 2.5 ครั้งต่อปี ซึ่งเทียบเท่าการเพิ่ม effective demand +39% โดยไม่ต้องลงทุนหา customer ใหม่<br><br><strong>การประเมินต้นทุน:</strong> ค่า setup ครั้งเดียว ฿15,000–25,000 บวกค่าบำรุงรักษา ฿3,000 ต่อเดือน ส่งผลให้ระยะเวลาคืนทุนภายใน 1 เดือน ถือเป็น <strong>Quick Win</strong> ที่ควรพิจารณาดำเนินการในช่วงเปิดดำเนินการ Y1</p>
   </div>
 
   <div class="card">
-    <h3>🎯 SWOT Summary — FixFit vs Thai Automotive Service Market</h3>
+    <h3>🎯 SWOT Analysis — FixFit ในบริบทตลาด Automotive Service ของประเทศไทย</h3>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px;">
       <div style="background:#ecfdf5; border-radius:8px; padding:12px;">
-        <div style="font-weight:700; color:#065f46; margin-bottom:8px;">💪 Strengths</div>
-        <div style="font-size:12px; line-height:1.8;">• Franchise brand + FastFit network (brand recognition)<br>• Internal demand floor จาก ATC auction cars<br>• Own building → no rental cost (cost advantage)<br>• 71% UIO >5yr = large serviceable market</div>
+        <div style="font-weight:700; color:#065f46; margin-bottom:8px;">💪 จุดแข็ง (Strengths)</div>
+        <div style="font-size:12px; line-height:1.8;">• สิทธิ์ Franchise ภายใต้เครือข่าย FastFit ที่มี Brand Recognition<br>• Internal Demand Floor จาก AUTC Auction Car ที่สร้าง captive revenue<br>• กรรมสิทธิ์ในที่ดินและอาคาร ลดภาระค่าเช่า (cost advantage)<br>• Addressable Market ขนาดใหญ่ — UIO อายุ &gt;5 ปี สัดส่วน 71%</div>
       </div>
       <div style="background:#fee2e2; border-radius:8px; padding:12px;">
-        <div style="font-weight:700; color:#7f1d1d; margin-bottom:8px;">⚠️ Weaknesses</div>
-        <div style="font-size:12px; line-height:1.8;">• Y1 EBITDA margin เพียง 11.9% — thin cushion<br>• Technician dependency (5 คนควบ operation ทั้งหมด)<br>• No CRM/retention tool ใน current model<br>• BEP 990 CPU ≈ 47% ของ capacity ต้องรักษา</div>
+        <div style="font-weight:700; color:#7f1d1d; margin-bottom:8px;">⚠️ จุดอ่อน (Weaknesses)</div>
+        <div style="font-size:12px; line-height:1.8;">• EBITDA Margin ปี Y1 เพียง 11.9% — มี cushion จำกัด<br>• พึ่งพาบุคลากร 5 คนในการดำเนินงานทั้งระบบ (key person risk)<br>• ไม่มีระบบ CRM หรือ Customer Retention Mechanism<br>• Break-even Point ที่ 990 CPU เทียบเท่า 47% ของ capacity ที่ต้องรักษา</div>
       </div>
       <div style="background:#dbeafe; border-radius:8px; padding:12px;">
-        <div style="font-weight:700; color:#1e40af; margin-bottom:8px;">🚀 Opportunities</div>
-        <div style="font-size:12px; line-height:1.8;">• Upsell tire/battery/wiper (+฿33K/mo net)<br>• Digital queue → revisit rate +39%<br>• EV charging ancillary (long-term hedge)<br>• Fleet/corporate service contracts</div>
+        <div style="font-weight:700; color:#1e40af; margin-bottom:8px;">🚀 โอกาส (Opportunities)</div>
+        <div style="font-size:12px; line-height:1.8;">• Upsell ยาง/แบตเตอรี่/ที่ปัดน้ำฝน → net upside ~฿33K/เดือน<br>• Digital Queue เพิ่ม revisit rate +39%<br>• EV Charging Service เป็น long-term hedge ต่อ EV transition<br>• ขยายฐานสู่ Fleet และ Corporate Service Contracts</div>
       </div>
       <div style="background:#fef3c7; border-radius:8px; padding:12px;">
-        <div style="font-weight:700; color:#92400e; margin-bottom:8px;">🔴 Threats</div>
-        <div style="font-size:12px; line-height:1.8;">• 28 competitors ใน 5km (HIGH density)<br>• EV 30@30 policy กระทบ core service demand Y6+<br>• Rising labor cost (Tech shortage industry-wide)<br>• Franchise royalty uncertainty</div>
+        <div style="font-weight:700; color:#92400e; margin-bottom:8px;">🔴 อุปสรรค (Threats)</div>
+        <div style="font-size:12px; line-height:1.8;">• Competitive Density 28 รายในรัศมี 5 กม. (HIGH density)<br>• นโยบาย EV 30@30 กระทบ core service demand ตั้งแต่ Y6+<br>• ต้นทุนแรงงานสูงขึ้นจากภาวะขาดแคลนช่างเทคนิคทั้งอุตสาหกรรม<br>• ความไม่ชัดเจนของ Franchise Royalty Obligation</div>
       </div>
     </div>
   </div>
@@ -835,7 +848,7 @@ const risks = [
   { title: 'Franchise Royalty Hidden Cost', impact: 'H', prob: 'M', cat: 'Financial', body: 'Ongoing royalty 3–8% rev ที่ไม่ได้ model → +฿1M/yr cost', mit: 'Verify franchise agreement ก่อน Board' },
   { title: 'EV Transition (30@30)', impact: 'H', prob: 'M', cat: 'Strategic', body: 'EV ไม่ใช้น้ำมันเครื่อง → demand decay Y6+ ที่ model ยัง assume flat', mit: 'Model Y6–10 demand decay 5–10%/yr' },
   { title: 'Ramp-up Underperformance', impact: 'H', prob: 'M', cat: 'Market', body: 'Y1 CPU เพียง 260 → ถ้าต่ำกว่า 167/mo (BEP monthly) จะติดลบ', mit: 'Aggressive marketing Y1 + internal CPU guarantee' },
-  { title: 'Auction Car Volume Drop', impact: 'M', prob: 'M', cat: 'Operational', body: 'ATC captive demand ควบคุมไม่ได้ → -100 units/mo ถ้า policy เปลี่ยน', mit: 'SLA committed volume จาก ATC group' },
+  { title: 'Auction Car Volume Drop', impact: 'M', prob: 'M', cat: 'Operational', body: 'AUTC captive demand ควบคุมไม่ได้ → -100 units/mo ถ้า policy เปลี่ยน', mit: 'SLA committed volume จาก AUTC group' },
   { title: 'Working Capital Shortage', impact: 'M', prob: 'H', cat: 'Financial', body: 'WC ฿420K cover แค่ 2.5 เดือน → cash shortfall Q1–Q3 Y1', mit: 'Monthly CF model + credit line standby' },
   { title: 'Competitive Density (28 shops)', impact: 'M', prob: 'H', cat: 'Market', body: '28 FastFit shops ใน 5km → price war + customer acquisition ยาก', mit: 'Location differentiation + loyalty program' },
   { title: 'Labor Cost Inflation', impact: 'M', prob: 'M', cat: 'Financial', body: 'Model ใช้ 5% fixed cost inflation แต่ labor min wage อาจขึ้นเร็วกว่า', mit: 'Sensitivity test ที่ 8–10% inflation scenario' },
