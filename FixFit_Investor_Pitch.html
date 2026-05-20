@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>FixFit — Investor Pitch (Two-Part)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Sarabun:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1F4E78;
+  --navy-dark: #0F2F4F;
+  --navy-deep: #081A2D;
+  --navy-light: #2E6CA0;
+  --gold: #C9A961;
+  --gold-light: #E8D9A8;
+  --gold-bright: #D4B570;
+  --cream: #FAF7F0;
+  --paper: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-muted: #3F3F3F;
+  --ink-soft: #6F6F6F;
+  --ink-meta: #5A5A5A;
+  --line: #E5DFD0;
+  --pass: #2D7A3E;
+  --pass-bg: #E8F5EA;
+  --warn: #B45309;
+  --warn-bg: #FEF4E2;
+  --fail: #B91C1C;
+  --fail-bg: #FEE7E7;
+  --soft-bg: #F8F5EB;
+  --part1-tone: #6B4F26;
+  --part1-bg: #FAF3E2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #1A1A1A;
+  font-family: 'Sarabun', 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 400;
+  overflow: hidden;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.deck { width: 100vw; height: 100vh; position: relative; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.slide.active { display: flex; }
+
+/* === COVER === */
+.slide.cover {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-dark) 50%, var(--navy) 100%);
+  color: white;
+  padding: 70px 96px;
+  position: relative;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle at 75% 50%, rgba(201,169,97,0.18) 0%, transparent 60%);
+}
+.cover-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--gold-light);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.cover-title-block {
+  margin-top: auto;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+.cover h1 {
+  font-family: 'Inter', 'Sarabun', sans-serif;
+  font-size: 88px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+.cover h1 .accent { color: var(--gold); font-weight: 300; }
+.cover .lede {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.92);
+  max-width: 900px;
+}
+.cover .lede strong { color: var(--gold-light); font-weight: 500; }
+
+.parts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0 8px;
+  position: relative;
+  z-index: 2;
+}
+.part-tag {
+  border-left: 3px solid var(--gold);
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.04);
+}
+.part-tag .ptag-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.part-tag .ptag-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.part-tag .ptag-sub {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+.cover-metric {
+  border-top: 2px solid var(--gold);
+  padding-top: 14px;
+}
+.cover-metric .m-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cover-metric .m-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: white;
+}
+.cover-metric .m-sub {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.72);
+  margin-top: 7px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.cover-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+  z-index: 2;
+}
+.cover-footer .item {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+}
+.cover-footer .item strong {
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+/* === CONTENT === */
+.slide.content {
+  padding: 48px 88px 44px;
+}
+
+.part-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding: 6px 14px;
+  border-radius: 3px;
+}
+.part-banner.p1 { background: var(--part1-bg); color: var(--part1-tone); }
+.part-banner.p2 { background: var(--soft-bg); color: var(--gold); }
+.part-banner.p2-warn { background: #FEF9EC; color: var(--warn); }
+.part-banner.p2-pass { background: var(--pass-bg); color: var(--pass); }
+.part-banner .dot {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.slide-h1 {
+  font-family: 'Inter', 'Sarabun', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.slide-h1 .soft { color: #4A4A4A; font-weight: 500; }
+.slide-sub {
+  font-size: 18px;
+  color: var(--ink-muted);
+  font-weight: 400;
+  max-width: 1050px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.slide-sub strong { color: var(--ink); font-weight: 600; }
+.gold-rule {
+  width: 60px;
+  height: 4px;
+  background: var(--gold);
+  margin: 0 0 18px;
+}
+
+.body-area { flex: 1; display: flex; flex-direction: column; }
+
+/* === SLIDE 2: ISSUES (Part 1) === */
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  flex: 1;
+}
+.issue-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.issue-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--part1-tone);
+}
+.issue-card .ic-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--part1-tone);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.issue-card .ic-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.issue-card .ic-impact {
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex: 1;
+  font-weight: 400;
+}
+.issue-card .ic-impact strong { color: var(--ink); font-weight: 600; }
+.issue-card .ic-fix {
+  background: var(--pass-bg);
+  border-left: 3px solid var(--pass);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.issue-card .ic-fix strong:first-child {
+  display: block;
+  color: var(--pass);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+}
+
+/* === SLIDE 3: REBUILD === */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  margin-bottom: 16px;
+}
+.compare-table thead th {
+  background: var(--navy-dark);
+  color: white;
+  padding: 12px 18px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.compare-table thead th.p1col { background: var(--part1-tone); }
+.compare-table thead th.p2col { background: var(--pass); }
+.compare-table tbody td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.compare-table tbody td.label { font-weight: 700; color: var(--navy-dark); width: 22%; font-size: 14px; }
+.compare-table tbody td.was { color: var(--ink-muted); width: 39%; font-weight: 400; }
+.compare-table tbody td.now { color: var(--ink); width: 39%; font-weight: 500; }
+.compare-table tbody td.now strong { font-weight: 700; color: var(--navy-dark); }
+.compare-table tbody tr:nth-child(even) { background: #FBFAF6; }
+
+.principles-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.principle {
+  background: var(--soft-bg);
+  padding: 13px 18px;
+  border-left: 3px solid var(--gold);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+.principle strong {
+  display: block;
+  color: var(--navy-dark);
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+/* === SLIDES 4 & 5: OPTION ANALYSIS === */
+.option-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 26px;
+  flex: 1;
+}
+.option-left { display: flex; flex-direction: column; gap: 12px; }
+.option-right { display: flex; flex-direction: column; gap: 11px; }
+
+.pros-block, .cons-block {
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  flex: 1;
+}
+.block-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.block-header.pass { color: var(--pass); border-color: var(--pass); }
+.block-header.warn { color: var(--warn); border-color: var(--warn); }
+.block-header.risk { color: #9B2226; border-color: #9B2226; }
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  font-weight: 400;
+}
+.item-list li {
+  padding: 7px 0 7px 20px;
+  position: relative;
+  border-bottom: 1px solid #F0EDE4;
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.item-list li strong { color: var(--navy-dark); font-weight: 700; }
+.item-list li .flag-warn { color: var(--warn); font-weight: 700; }
+.item-list li .flag-pass { color: var(--pass); font-weight: 700; }
+
+.invest-badge {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.invest-badge.style-warn { background: var(--navy-dark); }
+.invest-badge.style-pass { background: var(--navy-dark); }
+.invest-badge .inv-icon {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.invest-badge .inv-right {}
+.invest-badge .inv-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: white;
+}
+.invest-badge .inv-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+.option-sc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.option-sc-table thead th {
+  background: var(--cream);
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--navy-dark);
+}
+.option-sc-table thead th:not(:first-child) { text-align: right; }
+.option-sc-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--ink);
+}
+.option-sc-table tbody td:not(:first-child) {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+}
+.option-sc-table tbody tr.sc-target { background: var(--soft-bg); }
+.util-ok { color: var(--pass); }
+.util-warn { color: var(--warn); font-weight: 800; }
+
+.option-flag {
+  font-size: 13.5px;
+  padding: 12px 16px;
+  line-height: 1.55;
+  border-left: 3px solid;
+  font-weight: 500;
+}
+.option-flag.is-warn { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); }
+.option-flag.is-pass { background: var(--pass-bg); color: var(--pass); border-color: var(--pass); }
+
+/* === SLIDE 6: COMPARISON === */
+.compare-full { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  flex: 1;
+}
+.comp-table thead th {
+  padding: 11px 16px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: left;
+}
+.comp-table thead th.hdr-row { background: var(--navy-dark); color: white; width: 30%; }
+.comp-table thead th.hdr-4 { background: #7C3E0A; color: white; width: 35%; text-align: center; }
+.comp-table thead th.hdr-5 { background: #1B5E30; color: white; width: 35%; text-align: center; }
+.comp-table tbody td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.comp-table tbody td.row-label { font-weight: 700; color: var(--navy-dark); font-size: 14px; }
+.comp-table tbody td.val-4 {
+  background: #FFF9F2;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink);
+}
+.comp-table tbody td.val-5 {
+  background: #F2FAF4;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink);
+}
+.comp-table tbody tr.section-head td {
+  background: var(--cream);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-meta);
+  padding: 6px 16px;
+  font-weight: 700;
+}
+.badge-w { color: var(--warn); font-size: 13px; font-weight: 700; }
+.badge-p { color: var(--pass); font-size: 13px; font-weight: 700; }
+
+.rec-bar {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  color: white;
+  padding: 18px 26px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+.rec-bar .rec-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.rec-bar .rec-text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.rec-bar .rec-cond {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.78);
+  margin-top: 7px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+.rec-bar .rec-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--gold-light);
+  text-align: right;
+  line-height: 1.7;
+}
+.rec-bar .rec-num strong { font-size: 32px; font-weight: 700; color: white; display: block; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+
+/* === SLIDE 7: RISKS === */
+.risks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.risk-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+}
+.risk-card .ricon {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+}
+.risk-card .rbody { flex: 1; }
+.risk-card .rname {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: 6px;
+}
+.risk-card .rdesc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.risk-card .rmit {
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--cream);
+  padding: 9px 12px;
+  border-left: 3px solid var(--pass);
+  line-height: 1.55;
+}
+.risk-card .rmit strong:first-child {
+  color: var(--pass);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.next-steps-bar {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  color: white;
+  padding: 18px 26px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.next-steps-bar .nlabel {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.next-steps-bar h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.next-step {
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+}
+.next-step .step-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.next-step .step-text { font-size: 13.5px; font-weight: 500; line-height: 1.45; }
+
+/* === SLIDE 7: STRATEGIC GROWTH PLAYS === */
+.plays-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+.play-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 14px 18px 14px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.play-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 100%);
+}
+.play-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+.play-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.play-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  line-height: 1.2;
+  flex: 1;
+}
+.play-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+  margin-bottom: 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px dashed var(--line);
+}
+.play-insight {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin-bottom: 7px;
+}
+.play-insight strong { color: var(--navy-dark); font-weight: 700; }
+.play-app {
+  font-size: 12.5px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  flex: 1;
+}
+.play-app strong { color: var(--navy-dark); font-weight: 700; }
+.play-impact {
+  font-size: 11.5px;
+  background: var(--soft-bg);
+  padding: 7px 11px;
+  border-left: 3px solid var(--pass);
+  color: var(--ink);
+  line-height: 1.5;
+}
+.play-impact strong {
+  color: var(--pass);
+  font-weight: 700;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 2px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.plays-summary {
+  margin-top: 12px;
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  color: white;
+  padding: 14px 22px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 22px;
+  align-items: center;
+}
+.plays-summary .ps-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.plays-summary .ps-result {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.plays-summary .ps-from {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: line-through;
+}
+.plays-summary .ps-arrow {
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.plays-summary .ps-to {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.01em;
+}
+.plays-summary .ps-note {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.82);
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* Footer */
+.slide-footer {
+  position: absolute;
+  bottom: 16px;
+  left: 88px;
+  right: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.slide-footer .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+.slide-footer .dot {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 6px;
+  z-index: 100;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+}
+.nav button {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.nav button:hover { background: rgba(255,255,255,0.25); }
+.page-indicator {
+  color: white;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media print {
+  html, body { overflow: visible; height: auto; background: white; }
+  .deck { width: 100%; height: auto; }
+  .slide {
+    position: relative;
+    inset: auto;
+    display: flex !important;
+    page-break-after: always;
+    width: 297mm;
+    height: 167mm;
+    padding: 14mm 20mm;
+  }
+  .slide.cover { padding: 20mm 26mm; }
+  .nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: COVER -->
+<!-- ============================================================ -->
+<section class="slide cover active">
+  <div class="cover-meta">Investment Opportunity  ·  Two-Part Presentation  ·  2026</div>
+
+  <div class="cover-title-block">
+    <h1>Fix<span class="accent">Fit</span></h1>
+    <div class="lede">
+      โอกาสลงทุนในธุรกิจ Quick-Fit Auto Service ที่ผ่านการ
+      <strong>ตรวจสอบและวิเคราะห์ใหม่อย่างละเอียด</strong><br>
+      เปรียบเทียบ 2 ทางเลือกลงทุน เพื่อให้เป็นข้อเสนอที่<strong>ตัดสินใจได้จริง</strong>
+    </div>
+  </div>
+
+  <div class="parts-row">
+    <div class="part-tag">
+      <div class="ptag-num">PART 01 · ตรวจสอบ Version ตั้งต้น</div>
+      <div class="ptag-title">ประเด็นใน Version ตั้งต้น</div>
+      <div class="ptag-sub">6 ประเด็นที่พบ · รื้อโมเดลใหม่ · ปรับให้ถูกต้องครบถ้วน</div>
+    </div>
+    <div class="part-tag">
+      <div class="ptag-num">PART 02 · วิเคราะห์ทางเลือกลงทุน</div>
+      <div class="ptag-title">4 Bay vs 5 Bay — เลือกอะไรดี?</div>
+      <div class="ptag-sub">ข้อดี · ข้อเสีย · ผลตอบแทนเปรียบเทียบ · คำแนะนำ</div>
+    </div>
+  </div>
+
+  <div class="metric-row">
+    <div class="cover-metric">
+      <div class="m-label">เงินลงทุน (5-Bay)</div>
+      <div class="m-val">฿9.64M</div>
+      <div class="m-sub">แนะนำ · โปร่งใสทุกบาท</div>
+    </div>
+    <div class="cover-metric">
+      <div class="m-label">IRR (10 ปี) · Base Case</div>
+      <div class="m-val">29.0%</div>
+      <div class="m-sub">เหนือ hurdle 12% · margin 17pp</div>
+    </div>
+    <div class="cover-metric">
+      <div class="m-label">NPV @ WACC 12%</div>
+      <div class="m-val">+8.6M</div>
+      <div class="m-sub">discounted 10 ปี</div>
+    </div>
+    <div class="cover-metric">
+      <div class="m-label">คืนทุน (Base Case)</div>
+      <div class="m-val">3.5 ปี</div>
+      <div class="m-sub">After-tax FCF</div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="item">
+      <strong>Confidential</strong>
+      สำหรับ qualified investors เท่านั้น
+    </div>
+    <div class="item" style="text-align: right;">
+      <strong>2026</strong>
+      Investment Memorandum
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: PART 1 — สิ่งที่ partner คิดมาผิด -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p1"><div class="dot"></div>PART 01 · ตรวจสอบ Version ตั้งต้น</div>
+  <h2 class="slide-h1">6 ประเด็นใน <span class="soft">Version ตั้งต้นที่ต้องปรับ</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    โมเดล Version ตั้งต้นที่นำเสนอมามีข้อที่ต้องปรับ <strong style="color:var(--part1-tone);">6 จุดสำคัญ</strong> ที่ทำให้ตัวเลขดูดีเกินความเป็นจริง
+    และ<strong>ยังใช้ตัดสินใจลงทุนไม่ได้</strong> — เราจึงต้องรื้อโมเดลใหม่ทั้งหมด
+  </p>
+
+  <div class="body-area">
+    <div class="issues-grid">
+
+      <div class="issue-card">
+        <div class="ic-num">/ 01</div>
+        <div class="ic-name">Capacity คำนวณผิด</div>
+        <div class="ic-impact">
+          ออกแบบมา 4 bays รับได้สูงสุด <strong>24 คัน/วัน</strong> แต่แผนปี 4–10 ตั้งเป้า <strong>25 คัน/วัน</strong>
+          (รวม auction synergy) — เกิน theoretical max ไปแล้ว 1 คัน
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          ออกแบบใหม่เป็น <strong>5 bays</strong> · รับได้ 30 คัน/วัน · วิ่ง 25 คันที่ 83% utilization พร้อม buffer
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="ic-num">/ 02</div>
+        <div class="ic-name">ค่าเช่าตั้งเป็น ฿0</div>
+        <div class="ic-impact">
+          ค่าเช่าพื้นที่ตั้งไว้ที่ 0 บาท ซึ่งปกปิด opportunity cost ของที่ดิน ~฿960K/ปี
+          ที่ฝังอยู่ใน balance sheet ของ group — ตัวเลขจึงดูดีเกินจริง
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          ใส่ market rent <strong>฿50,000/เดือน</strong> แบบ formal subsidy · เปิดเผยทุกบาท · RPT documented
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="ic-num">/ 03</div>
+        <div class="ic-name">ภาษี flat 20% ผิดกฎหมาย</div>
+        <div class="ic-impact">
+          ใช้ tax rate 20% ทุกปีตั้งแต่ปีแรก · แต่ Thai SME (ทุนจด ≤5M · รายได้ ≤30M)
+          ต้องใช้ progressive rate ตาม Revenue Code ไม่ใช่ flat rate
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          ใช้ <strong>progressive Thai SME</strong>: รายได้ ≤300K = 0% · 300K–3M = 15% · &gt;3M = 20%
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="ic-num">/ 04</div>
+        <div class="ic-name">สูตร BEP คำนวณผิด</div>
+        <div class="ic-impact">
+          แสดง BEP = 990 · แต่สูตรที่ใช้คือ contribution margin per unit ไม่ใช่ break-even units —
+          ตัวเลขนี้ตีความไม่ได้และนำไปใช้ผิดวัตถุประสงค์
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          แก้สูตรเป็น <strong>Fixed Cost ÷ (ราคา × GP%)</strong> = 167 คัน/เดือน = 6.4 คัน/วัน
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="ic-num">/ 05</div>
+        <div class="ic-name">ไม่มี IRR / NPV / WACC</div>
+        <div class="ic-impact">
+          มีเพียง Payback Period ที่คำนวณจาก EBITDA×12 (ไม่ใช่ after-tax FCF) —
+          ไม่เพียงพอสำหรับตัดสินใจลงทุนระดับ 8–10 ล้านบาท
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          เพิ่ม <strong>IRR · NPV @ WACC 12%</strong> · sensitivity table · 3 scenarios (Conservative/Base/Upside)
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="ic-num">/ 06</div>
+        <div class="ic-name">ไม่ stress test EV transition</div>
+        <div class="ic-impact">
+          ปี 7–10 ตรงกับช่วงที่ BEV ขึ้นมาเป็น 25–30% ของรถใหม่ · service demand รถ ICE
+          จะลดลง 15–25% แต่โมเดลเดิมไม่ได้คิดเรื่องนี้เลย
+        </div>
+        <div class="ic-fix">
+          <strong>สิ่งที่เราปรับ</strong>
+          ใส่ <strong>−20% revenue/unit ตั้งแต่ปี 7</strong> ใน base case · วางแผน EV capability Y3–5
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>02 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: PART 1 — วิธีที่เราสร้างโมเดลใหม่ -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p1"><div class="dot"></div>PART 01 · วิธีที่เราสร้างโมเดลใหม่</div>
+  <h2 class="slide-h1">Version ตั้งต้น vs ที่เราสร้างใหม่ <span class="soft">— แต่ละจุดที่ปรับ</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    เรารื้อโมเดลทั้งหมดตั้งแต่ต้น · ใส่ financial discipline ครบ · แก้ capacity · stress-test ทุก scenario
+    จนได้ข้อสรุปที่ <strong>ตอบคำถาม investor ได้ทุกข้อ</strong>
+  </p>
+
+  <div class="body-area">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">หัวข้อ</th>
+          <th class="p1col" style="width: 39%;">Version ตั้งต้น</th>
+          <th class="p2col" style="width: 39%;">โมเดลที่เราสร้างใหม่</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">ขนาดและ Capacity</td>
+          <td class="was">4 bays · สูงสุด 24 คัน/วัน · ไม่พอรองรับเป้า 25 คัน/วัน</td>
+          <td class="now"><strong>5 bays</strong> · สูงสุด 30 คัน/วัน · วิ่ง 25 คันที่ 83% util พร้อม buffer</td>
+        </tr>
+        <tr>
+          <td class="label">ความโปร่งใสของเงินลงทุน</td>
+          <td class="was">฿8.6M (ซ่อนค่าเช่า ฿0 ไว้ใน balance sheet group)</td>
+          <td class="now"><strong>฿9.64M</strong> (รวม market rent · ทุกบาทเปิดเผย · RPT declared)</td>
+        </tr>
+        <tr>
+          <td class="label">ตัววัดผลตอบแทน</td>
+          <td class="was">แค่ Payback Period · 4 ปี (จาก EBITDA×12, ไม่ใช่ FCF)</td>
+          <td class="now"><strong>IRR · NPV · Payback (after-tax FCF)</strong> · sensitivity 3 scenarios</td>
+        </tr>
+        <tr>
+          <td class="label">การคำนวณภาษี</td>
+          <td class="was">Flat 20% ทุกปี (ผิด Thai Revenue Code สำหรับ SME)</td>
+          <td class="now"><strong>Progressive Thai SME</strong> 0% / 15% / 20% ตามกฎหมาย</td>
+        </tr>
+        <tr>
+          <td class="label">การทดสอบความเสี่ยง</td>
+          <td class="was">3 กรณีเฉพาะ CPU multiplier · ไม่ flex ตัวแปรอื่น</td>
+          <td class="now">EV transition stress · GP/cost flex · Conservative / Base / Upside scenarios</td>
+        </tr>
+        <tr>
+          <td class="label">ความพร้อมด้านบุคลากร</td>
+          <td class="was">5 คน · marketing 2.6% ของรายได้ · ไม่มี maintenance capex</td>
+          <td class="now">8 คน (5 ช่าง) · marketing 5% Y1–2 · maintenance capex ปี 7 ฿1.5M</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="principles-row">
+      <div class="principle">
+        <strong>Financial discipline</strong>
+        IRR / NPV / WACC เป็น mandatory metric — ไม่ใช่แค่ Payback
+      </div>
+      <div class="principle">
+        <strong>Capacity ต้อง match plan</strong>
+        คณิตศาสตร์ต้องสอดคล้องกัน · 5 bays เพื่อรับ 25 คัน/วัน
+      </div>
+      <div class="principle">
+        <strong>Assumptions โปร่งใส</strong>
+        ทุกตัวเลขมีที่มา · ถูกต้องตามกฎหมายไทย
+      </div>
+      <div class="principle">
+        <strong>Stress-tested อย่างซื่อสัตย์</strong>
+        EV · demand ต่ำกว่าคาด · ต้นทุนสูงขึ้น — ใส่ครบทุกตัว
+      </div>
+      <div class="principle">
+        <strong>Governance ติดมาด้วย</strong>
+        Performance triggers · RPT disclosure · KPI รายเดือน
+      </div>
+      <div class="principle" style="border-left-color: var(--pass);">
+        <strong style="color: var(--pass);">ผลลัพธ์</strong>
+        IRR 29% · ผ่าน hurdle 12% · ยังคุ้มลงทุนแม้หลัง stress test
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>03 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: PART 2 — ทางเลือกที่ 1: ลงทุน 4 Bay -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p2-warn"><div class="dot"></div>PART 02 · SCENARIO A — 4 BAYS</div>
+  <h2 class="slide-h1">ทางเลือกที่ 1: <span class="soft">ลงทุน 4 Bay</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    เงินลงทุนต่ำกว่า และผลตอบแทนสูงกว่าบนกระดาษ · แต่มีข้อจำกัดด้าน capacity ที่
+    <strong style="color:var(--warn);">ทำให้แผนงานจริงทำได้ยากกว่าที่ตัวเลขบอก</strong>
+  </p>
+
+  <div class="body-area">
+    <div class="option-layout">
+
+      <!-- LEFT: ข้อดี + ข้อจำกัด -->
+      <div class="option-left">
+
+        <div class="pros-block">
+          <div class="block-header pass">✓&nbsp; ข้อดี (Pros)</div>
+          <ul class="item-list">
+            <li>เงินลงทุน <strong>ต่ำกว่า ฿1.18M</strong> — ใช้แค่ ฿8.46M (vs ฿9.64M สำหรับ 5 bay)</li>
+            <li>IRR และ NPV <strong>สูงกว่าทุก scenario บนกระดาษ</strong> เพราะ capex ต่ำกว่า</li>
+            <li>คืนทุนเร็วกว่า: <strong>3.0 ปี</strong> ใน Base Case (vs 3.5 ปีของ 5 bay)</li>
+            <li>ความเสี่ยงด้านเงินทุนน้อยกว่า — เหมาะถ้าต้องการ capital efficiency สูงสุด</li>
+          </ul>
+        </div>
+
+        <div class="cons-block">
+          <div class="block-header warn">⚠&nbsp; ข้อจำกัดสำคัญ (Cons)</div>
+          <ul class="item-list">
+            <li>Base Case วิ่งที่ <span class="flag-warn">100% theoretical capacity</span> — ไม่มี buffer แม้แต่คันเดียว</li>
+            <li>รับ auction synergy (5 คัน/วัน จาก group) ได้ แต่ <span class="flag-warn">ไม่มี room</span> สำหรับ organic growth เพิ่มเติม</li>
+            <li>ช่างต้องทำงาน full throttle ตลอดเวลา → <strong>turnover สูง</strong> และ quality error rate เพิ่ม</li>
+            <li>Upside scenario <span class="flag-warn">ถูก cap</span> — ไม่สามารถ scale รายได้เกิน 24 คัน/วันได้</li>
+            <li>Overtime cost และ service delay ซ่อนอยู่ในโมเดล — กินกำไรช่วง peak season</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Financial Terms -->
+      <div class="option-right">
+
+        <div class="invest-badge style-warn">
+          <div class="inv-icon">INVESTMENT<br>ASK</div>
+          <div class="inv-right">
+            <div class="inv-val">฿8.46M</div>
+            <div class="inv-sub">4 bays · ความสามารถสูงสุด 24 คัน/วัน</div>
+          </div>
+        </div>
+
+        <table class="option-sc-table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>NPV</th>
+              <th>IRR</th>
+              <th>คืนทุน</th>
+              <th>Util</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conservative<br><span style="font-size:11.5px;color:var(--ink-muted);">ไม่มี auction synergy</span></td>
+              <td>+฿2.4M</td>
+              <td>16.8%</td>
+              <td>4.4 ปี</td>
+              <td class="util-ok">71%</td>
+            </tr>
+            <tr class="sc-target">
+              <td>★ Base Case<br><span style="font-size:11.5px;color:var(--ink-muted);">auction synergy ทำงาน</span></td>
+              <td>+฿10.5M</td>
+              <td>35.7%</td>
+              <td>3.0 ปี</td>
+              <td class="util-warn">100% ⚠</td>
+            </tr>
+            <tr>
+              <td>Upside (capped)<br><span style="font-size:11.5px;color:var(--ink-muted);">ถูก cap ที่ 24 คัน/วัน</span></td>
+              <td>+฿14.9M</td>
+              <td>47.2%</td>
+              <td>2.3 ปี</td>
+              <td class="util-warn">100% ⚠</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="option-flag is-warn">
+          ⚠&nbsp; Base Case และ Upside วิ่งที่ 100% capacity — ไม่มี buffer
+          สำหรับพัก · QC · หรือ demand spike ฤดูกาล ต้นทุนจริงสูงกว่าที่โมเดลแสดง
+        </div>
+
+        <div style="background: var(--cream); padding: 12px 16px; font-size: 13px; color: var(--ink-muted); line-height: 1.55; border-left: 3px solid var(--line);">
+          <strong style="color: var(--navy-dark); display: block; margin-bottom: 2px;">รายละเอียดเงินลงทุน</strong>
+          อาคาร ฿4.80M · อุปกรณ์ ฿2.96M · ค่าแรกเข้า ฿0.20M · เงินทุนหมุนเวียน ฿0.50M
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>04 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: PART 2 — ทางเลือกที่ 2: ลงทุน 5 Bay (แนะนำ) -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p2-pass"><div class="dot"></div>PART 02 · SCENARIO B — 5 BAYS · แนะนำ</div>
+  <h2 class="slide-h1">ทางเลือกที่ 2: <span class="soft">ลงทุน 5 Bay (แนะนำ)</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    เงินลงทุนสูงกว่า ฿1.18M · แต่รองรับ auction synergy ได้อย่างปลอดภัย
+    และ<strong style="color:var(--pass);">ยังมีพื้นที่เหลือสำหรับ growth ในอนาคต</strong>
+  </p>
+
+  <div class="body-area">
+    <div class="option-layout">
+
+      <!-- LEFT: ประโยชน์ + ความเสี่ยง -->
+      <div class="option-left">
+
+        <div class="pros-block">
+          <div class="block-header pass">✓&nbsp; ประโยชน์ที่ได้ (Benefits)</div>
+          <ul class="item-list">
+            <li>Buffer <strong>17%</strong> — วิ่ง 25 คัน/วัน ที่ 83% utilization มีพื้นที่รับ demand ผันผวน</li>
+            <li>Auction synergy ทำงานได้ <strong>เต็มเม็ดเต็มหน่วย</strong>: รับ 5 คัน/วัน จาก group โดยไม่กระทบ organic lane</li>
+            <li>Upside scenario <strong>ไม่ถูก cap</strong> — รายได้โตได้ถึง 30 คัน/วัน หาก demand เพิ่ม</li>
+            <li>ช่างทำงานอย่างยั่งยืน → <strong>turnover ต่ำ</strong> · quality ดีกว่า · ลูกค้ากลับมาซ้ำ</li>
+            <li>เป็น <strong>platform ขยายสาขา</strong>: unit economics proven ก่อน roll-out เพิ่มเติม</li>
+          </ul>
+        </div>
+
+        <div class="cons-block">
+          <div class="block-header risk">↓&nbsp; ความเสี่ยง (Risks)</div>
+          <ul class="item-list">
+            <li>เงินลงทุน <span class="flag-warn">สูงกว่า ฿1.18M</span> — ต้องการ capital commitment ที่มากกว่า</li>
+            <li>Conservative NPV ต่ำกว่า 4-bay (<strong>฿0.6M vs ฿2.4M</strong>) เพราะ fixed cost สูงกว่า</li>
+            <li>คืนทุนช้ากว่าทุก scenario — ต้องการความอดทนในปีแรกๆ</li>
+            <li>Synergy thesis ต้องการ <strong>MOU ที่บังคับใช้ได้จริง</strong> จาก group ก่อน commit</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Financial Terms -->
+      <div class="option-right">
+
+        <div class="invest-badge style-pass">
+          <div class="inv-icon">INVESTMENT<br>ASK</div>
+          <div class="inv-right">
+            <div class="inv-val">฿9.64M</div>
+            <div class="inv-sub">5 bays · capacity 30 คัน/วัน · แนะนำ</div>
+          </div>
+        </div>
+
+        <table class="option-sc-table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>NPV</th>
+              <th>IRR</th>
+              <th>คืนทุน</th>
+              <th>Util</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Conservative<br><span style="font-size:11.5px;color:var(--ink-muted);">ไม่มี auction synergy</span></td>
+              <td>+฿0.6M</td>
+              <td>13.3%</td>
+              <td>5.0 ปี</td>
+              <td class="util-ok">57%</td>
+            </tr>
+            <tr class="sc-target">
+              <td>★ Base Case<br><span style="font-size:11.5px;color:var(--ink-muted);">auction synergy ทำงาน</span></td>
+              <td>+฿8.6M</td>
+              <td>29.0%</td>
+              <td>3.5 ปี</td>
+              <td class="util-ok">83% ✓</td>
+            </tr>
+            <tr>
+              <td>Upside<br><span style="font-size:11.5px;color:var(--ink-muted);">full mandate + GP 40%</span></td>
+              <td>+฿18.8M</td>
+              <td>46.4%</td>
+              <td>2.5 ปี</td>
+              <td>100%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="option-flag is-pass">
+          ✓&nbsp; Base Case ทุกตัวเลข stress-tested แล้ว รวม EV −20% ตั้งแต่ปี 7
+          · แม้ Conservative ยังผ่าน hurdle 12% (IRR 13.3%)
+        </div>
+
+        <div style="background: var(--cream); padding: 12px 16px; font-size: 13px; color: var(--ink-muted); line-height: 1.55; border-left: 3px solid var(--line);">
+          <strong style="color: var(--navy-dark); display: block; margin-bottom: 2px;">รายละเอียดเงินลงทุน</strong>
+          อาคาร ฿5.80M · อุปกรณ์ ฿3.19M · ค่าแรกเข้า ฿0.20M · เงินทุนหมุนเวียน ฿0.46M
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>05 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: เปรียบเทียบ 4 Bay vs 5 Bay + คำแนะนำ -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p2"><div class="dot"></div>PART 02 · เปรียบเทียบ &amp; คำแนะนำ</div>
+  <h2 class="slide-h1">4 Bay vs 5 Bay <span class="soft">— ตัดสินใจบนข้อมูลจริง</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    ทั้งสองทางเลือกมีข้อดีของตัวเอง · ความแตกต่างหลักอยู่ที่ <strong>confidence ใน auction synergy</strong>
+    และ <strong>ระดับความเสี่ยงที่ยอมรับได้</strong>
+  </p>
+
+  <div class="body-area">
+    <div class="compare-full">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th class="hdr-row">หัวข้อเปรียบเทียบ</th>
+            <th class="hdr-4">SCENARIO A · 4 BAYS</th>
+            <th class="hdr-5">SCENARIO B · 5 BAYS · แนะนำ ✓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-head">
+            <td colspan="3">ข้อมูลพื้นฐาน</td>
+          </tr>
+          <tr>
+            <td class="row-label">เงินลงทุนรวม</td>
+            <td class="val-4">฿8.46M</td>
+            <td class="val-5">฿9.64M <span style="font-size:12.5px;color:var(--ink-meta);font-weight:500">(+฿1.18M)</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Capacity สูงสุด / วัน</td>
+            <td class="val-4">24 คัน (100% = ขีดจำกัด) <span class="badge-w">⚠</span></td>
+            <td class="val-5">30 คัน (83% @ 25 คัน) <span class="badge-p">✓</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Auction Synergy (5 คัน/วัน)</td>
+            <td class="val-4">รับได้ แต่ไม่มี buffer เหลือ <span class="badge-w">⚠</span></td>
+            <td class="val-5">รับได้สบาย · organic lane ไม่ถูกกระทบ <span class="badge-p">✓</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">ศักยภาพ scale ในอนาคต</td>
+            <td class="val-4">ถูก cap ที่ 24 คัน/วัน <span class="badge-w">❌</span></td>
+            <td class="val-5">โตได้ถึง 30 คัน/วัน <span class="badge-p">✓</span></td>
+          </tr>
+          <tr class="section-head">
+            <td colspan="3">Conservative Scenario — ไม่มี auction synergy</td>
+          </tr>
+          <tr>
+            <td class="row-label">NPV @ WACC 12%</td>
+            <td class="val-4">+฿2.4M <span class="badge-w">(สูงกว่า)</span></td>
+            <td class="val-5">+฿0.6M</td>
+          </tr>
+          <tr>
+            <td class="row-label">IRR / คืนทุน</td>
+            <td class="val-4">16.8% · 4.4 ปี</td>
+            <td class="val-5">13.3% · 5.0 ปี</td>
+          </tr>
+          <tr class="section-head">
+            <td colspan="3">Base Case — auction synergy ทำงาน (แนะนำใช้วางแผน)</td>
+          </tr>
+          <tr>
+            <td class="row-label">NPV @ WACC 12%</td>
+            <td class="val-4">+฿10.5M · utilization 100% <span class="badge-w">⚠</span></td>
+            <td class="val-5">+฿8.6M · utilization 83% <span class="badge-p">✓</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">IRR / คืนทุน</td>
+            <td class="val-4">35.7% · 3.0 ปี</td>
+            <td class="val-5">29.0% · 3.5 ปี</td>
+          </tr>
+          <tr class="section-head">
+            <td colspan="3">Upside Scenario — demand เต็ม + GP สูงสุด</td>
+          </tr>
+          <tr>
+            <td class="row-label">NPV / IRR (Upside)</td>
+            <td class="val-4">+฿14.9M · 47.2% (ถูก cap) <span class="badge-w">⚠</span></td>
+            <td class="val-5">+฿18.8M · 46.4% <span class="badge-p">✓ growth ไม่ถูก block</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="rec-bar">
+        <div>
+          <div class="rec-tag">คำแนะนำ</div>
+          <div class="rec-text">เลือก 5 Bay — ถ้า auction synergy มี probability ≥ 70%<br>
+            เลือก 4 Bay — ถ้าวางแผนบน Conservative (ไม่พึ่ง synergy)</div>
+          <div class="rec-cond">5-bay จ่ายเพิ่ม ฿1.18M เพื่อได้ capacity buffer · upside ไม่ถูก block · ทีมทำงานอย่างยั่งยืน
+            · และตัวเลข Upside สูงกว่า Base Case ของ 4-bay เสียอีก</div>
+        </div>
+        <div class="rec-num">
+          <strong>29.0%</strong>
+          IRR Base Case<br>
+          5-bay · แนะนำ
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>06 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: STRATEGIC GROWTH PLAYS (จากงานวิจัย Fleet 2030) -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p2-pass"><div class="dot"></div>PART 02 · กลยุทธ์ขยายความน่าสนใจ</div>
+  <h2 class="slide-h1">4 Growth Plays <span class="soft">— ยกระดับ FixFit จาก Shop สู่ Platform</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    หาก FixFit เพิ่ม <strong>4 กลยุทธ์เชิงโครงสร้าง</strong> ที่อ้างอิงงานวิจัย <strong>BCG/CLEPA · McKinsey · Wolk Aftersales</strong> (Aftermarket 2030) จะยกระดับจาก "single-shop investment IRR 29%" สู่ <strong>"platform-grade investment IRR 37–43%"</strong>
+  </p>
+
+  <div class="body-area">
+    <div class="plays-grid">
+
+      <div class="play-card">
+        <div class="play-header">
+          <div class="play-num">01</div>
+          <div class="play-title">Fleet B2B Expansion<br><span style="font-size:12px; color:var(--ink-muted); font-weight:400;">รุก B2B Fleet (corporate / lease / taxi / group)</span></div>
+        </div>
+        <div class="play-source">📖 BCG/CLEPA · "Aftermarket 2030 — The Fleet Imperative" (2023)</div>
+        <div class="play-insight">Fleet aftermarket โต <strong>CAGR 4.8%</strong> (vs ตลาดรวม 1.7%) · จะกินสัดส่วน <strong>37% ของตลาด aftermarket</strong> ภายในปี 2030 — fleet คือ "B2B customer ที่ใหญ่ที่สุดและ stable ที่สุด"</div>
+        <div class="play-app"><strong>FixFit ทำได้:</strong> ขยายจาก walk-in สู่ B2B contracts (รถเช่า · taxi cooperatives · Grab fleet · บริษัทขนส่ง) + leverage <strong>PT Group ภายในเอง</strong>: auction 2,000 คัน/เดือน + group corporate fleet เป็น demand floor</div>
+        <div class="play-impact"><strong>Impact</strong>+20–30% predictable revenue · ลด CAC 40–60% · margin stable · <strong>IRR uplift +3–5pp</strong></div>
+      </div>
+
+      <div class="play-card">
+        <div class="play-header">
+          <div class="play-num">02</div>
+          <div class="play-title">Digital Service Layer<br><span style="font-size:12px; color:var(--ink-muted); font-weight:400;">ระบบ booking + CRM + predictive maintenance</span></div>
+        </div>
+        <div class="play-source">📖 McKinsey "Ready for Inspection" 2018 + BCG "European Aftermarket 2030"</div>
+        <div class="play-insight"><strong>&gt;70% ของผู้เชี่ยวชาญ</strong> ระบุว่า workshops ยัง "ไม่พร้อม" สำหรับ digital · service aggregators (Autodoc, WhoCanFixMyCar) คาดโต <strong>2 เท่าภายใน 2030</strong> · routing platforms จะคุม traffic</div>
+        <div class="play-app"><strong>FixFit ทำได้:</strong> LINE OA + Online booking + Digital queue + CRM (service history per car) + predictive maintenance reminder + API integration กับ fleet manager system (ต่อยอด Strategy #1)</div>
+        <div class="play-impact"><strong>Impact</strong>Revisit rate 1.8 → 2.5 ครั้ง/ปี (+39% effective demand) · setup ฿15–25K · payback 1 เดือน · <strong>IRR uplift +2–3pp</strong></div>
+      </div>
+
+      <div class="play-card">
+        <div class="play-header">
+          <div class="play-num">03</div>
+          <div class="play-title">EV Service Readiness<br><span style="font-size:12px; color:var(--ink-muted); font-weight:400;">เตรียมตัวรองรับ EV transition Y3-7</span></div>
+        </div>
+        <div class="play-source">📖 BCG/CLEPA Fleet Imperative + Thai 30@30 Policy + McKinsey</div>
+        <div class="play-insight">BEV penetration จะถึง <strong>30% ของรถใหม่</strong> ภายในปี 2030 (Thai 30@30) · ICE R&amp;M spend ลด <strong>~37% ภายใน 2030</strong> · แต่ EV-specific service ในไทยยัง undersupplied — first-mover advantage ยังคว้าได้</div>
+        <div class="play-app"><strong>FixFit ทำได้:</strong> Y3-5: ลงทุน EV diagnostic + BMS tools (~฿0.5–1.5M) · Y3: train ช่าง 2 คน · Y5: เปิด EV service line (battery health check · BMS reset · regen brake calibration) · Y7+: charging station ancillary</div>
+        <div class="play-impact"><strong>Impact</strong>Hedge ต่อ ICE decline -20% Y7+ ที่ใส่ใน Base case · EV ARPU สูงกว่า ICE 1.5–2x · <strong>risk-adjusted IRR +1–2pp</strong></div>
+      </div>
+
+      <div class="play-card">
+        <div class="play-header">
+          <div class="play-num">04</div>
+          <div class="play-title">Partnership Ecosystem<br><span style="font-size:12px; color:var(--ink-muted); font-weight:400;">ประกัน + Tier-1 suppliers + routing portals</span></div>
+        </div>
+        <div class="play-source">📖 BCG "European Aftermarket 2030" · Control Point A (Workshop Selection)</div>
+        <div class="play-insight">Insurance + fleet companies <strong>กลายเป็น "customer routing channel"</strong> ที่ใหญ่ขึ้น · workshops ต้องอยู่ใน "preferred provider network" เพื่อ secure traffic · Tier-1 (Bosch, Hella, NTN) มี garage program ที่ workshops เข้าร่วมได้</div>
+        <div class="play-app"><strong>FixFit ทำได้:</strong> MOU กับประกัน 3–5 ราย (Bangkok Insurance · ทิพย · Allianz) เป็น preferred post-claim repair · เข้าร่วม <strong>Bosch Car Service / NTN Service Network</strong> · list ใน routing portals (Carmana) · partner กับ leasing (Toyota Leasing · Honda Leasing)</div>
+        <div class="play-impact"><strong>Impact</strong>-2 ถึง -3pp COGS (procurement discount) · +15–25% inbound traffic · brand validation · <strong>IRR uplift +2–4pp</strong></div>
+      </div>
+
+    </div>
+
+    <!-- Combined Impact Summary -->
+    <div class="plays-summary">
+      <div class="ps-label">หากทำครบ<br>ทั้ง 4 กลยุทธ์</div>
+      <div class="ps-result">
+        <span class="ps-from">Base IRR 29.0%</span>
+        <span class="ps-arrow">→</span>
+        <span class="ps-to">Platform IRR 37–43%</span>
+      </div>
+      <div class="ps-note">NPV +฿14–20M (vs Base +฿8.6M) · structural moat ที่ standalone shop replicate ยาก · scalable เป็น multi-shop platform ใน Y3+</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>07 / 08</div>
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: RISKS & PATH FORWARD -->
+<!-- ============================================================ -->
+<section class="slide content">
+  <div class="part-banner p2"><div class="dot"></div>PART 02 · ความเสี่ยง &amp; ขั้นตอนถัดไป</div>
+  <h2 class="slide-h1">ความเสี่ยงที่ระบุ <span class="soft">และแผนรับมือ</span></h2>
+  <div class="gold-rule"></div>
+  <p class="slide-sub">
+    ระบุ 4 ความเสี่ยงหลักพร้อม mitigation รูปธรรม · ใส่ performance triggers ในสัญญา · closing path 6 สัปดาห์
+  </p>
+
+  <div class="body-area">
+    <div class="risks-grid">
+
+      <div class="risk-card">
+        <div class="ricon">01</div>
+        <div class="rbody">
+          <div class="rname">ความเสี่ยงการ ramp ลูกค้า</div>
+          <div class="rdesc">ปีแรกตั้งเป้า 10 คัน/วัน · ถ้า ramp ช้ากว่าแผน 1–2 เดือน กระทบ cash flow ช่วงต้น</div>
+          <div class="rmit">
+            <strong>แผนรับมือ</strong>
+            marketing 5% รายได้ Y1–2 (~฿470K) · soft launch 2 เดือน · ติดตาม CAC · auction synergy = ฐานรายได้ขั้นต่ำ
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="ricon">02</div>
+        <div class="rbody">
+          <div class="rname">การแข่งขันและสงครามราคา</div>
+          <div class="rdesc">มีร้าน fast-fit 27 ร้านในรัศมี 5 กม. · อาจมี price war ช่วง low season</div>
+          <div class="rmit">
+            <strong>แผนรับมือ</strong>
+            สร้างความแตกต่างผ่าน revenue mix · ทำเลติดเส้น traffic · brand ของ group · captive auction lane
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="ricon">03</div>
+        <div class="rbody">
+          <div class="rname">การเปลี่ยนผ่านสู่ EV (ปี 7+)</div>
+          <div class="rdesc">BEV ครองตลาดรถใหม่ 25–30% ในปี 2030 · demand service ICE ลดลง 15–25%</div>
+          <div class="rmit">
+            <strong>แผนรับมือ</strong>
+            ลงทุน EV capability Y3–5 (BMS · regen brake · battery diag) · โมเดลใส่ −20% Y7+ แล้ว
+          </div>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="ricon">04</div>
+        <div class="rbody">
+          <div class="rname">การบริหารจัดการภายใน</div>
+          <div class="rdesc">Manager turnover · ความสามารถเกิน capacity · อะไหล่หมดสต็อกช่วง peak</div>
+          <div class="rmit">
+            <strong>แผนรับมือ</strong>
+            โบนัส Manager ผูกกับ P&amp;L · ช่าง 5 คน (1/bay) · เงินทุนหมุนเวียน ฿462K (~30 วัน) · KPI กาย trigger
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="next-steps-bar">
+      <div>
+        <div class="nlabel">ขั้นตอนถัดไป</div>
+        <h3>3 ขั้นตอน<br>ภายใน 6 สัปดาห์</h3>
+      </div>
+      <div class="next-step">
+        <div class="step-num">ขั้น 01 · สัปดาห์ 1–2</div>
+        <div class="step-text">DD pack · เยี่ยมชมสถานที่ · พบทีมงาน</div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">ขั้น 02 · สัปดาห์ 3–4</div>
+        <div class="step-text">Term sheet · กำหนดเงื่อนไขการลงทุน · Governance</div>
+      </div>
+      <div class="next-step">
+        <div class="step-num">ขั้น 03 · สัปดาห์ 5–6</div>
+        <div class="step-text">Definitive docs · ปิดดีล · เป้าเปิดร้าน Q3</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <div class="brand"><div class="dot"></div>FixFit · Investment Memorandum</div>
+    <div>08 / 08</div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+
+<div class="nav">
+  <button onclick="prev()">←</button>
+  <div class="page-indicator" id="page">1 / 7</div>
+  <button onclick="next()">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const pageEl = document.getElementById('page');
+let idx = 0;
+function show(n) {
+  slides[idx].classList.remove('active');
+  idx = (n + slides.length) % slides.length;
+  slides[idx].classList.add('active');
+  pageEl.textContent = `${idx+1} / ${slides.length}`;
+}
+function next() { show(idx + 1); }
+function prev() { show(idx - 1); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') next();
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') prev();
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End') show(slides.length - 1);
+});
+document.querySelectorAll('.slide').forEach(s => {
+  s.addEventListener('click', e => { if (!e.target.closest('.nav')) next(); });
+});
+</script>
+</body>
+</html>
